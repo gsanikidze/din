@@ -20,33 +20,20 @@ struct AddTodoScreen: View {
     
     var body: some View {
         NavigationView {
-            ScrollView {
-                VStack (spacing: 20) {
-                    VStack (alignment: .center, spacing: 20) {
-                        TextField("Title", text: $title)
-                        Divider()
-                        Picker("Select Group", selection: $group) {
-                            ForEach(groups, id: \.self) {
-                                Text($0).foregroundColor(.red)
-                            }
-                        }
+            Form {
+                TextField("Title", text: $title)
+                
+                Picker("Select Group", selection: $group) {
+                    ForEach(groups, id: \.self) {
+                        Text($0)
                     }
-                    .padding()
-                    .background(Color(UIColor.systemGray5))
-                    .cornerRadius(10)
-                    
-                    VStack (alignment: .center, spacing: 20) {
-                        DatePicker(
-                                "Do Date",
-                                selection: $date,
-                                displayedComponents: [.date]
-                            )
-                    }
-                    .padding()
-                    .background(Color(UIColor.systemGray5))
-                    .cornerRadius(10)
                 }
-                .padding()
+                
+                DatePicker(
+                    "Do Date",
+                    selection: $date,
+                    displayedComponents: [.date]
+                )
             }
             .toolbar {
                 ToolbarItem (placement: .navigationBarLeading) {
