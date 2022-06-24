@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GroupCardView: View {
-    var group: Group
+    @ObservedObject var group: Group
     
     var body: some View {
         VStack {
