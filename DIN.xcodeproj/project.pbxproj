@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		218113E92865DD15006DA023 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218113E82865DD15006DA023 /* Color.swift */; };
+		218113EB2865DE25006DA023 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218113EA2865DE25006DA023 /* Group.swift */; };
+		218113ED2865E196006DA023 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218113EC2865E196006DA023 /* Todo.swift */; };
 		2187400C2862FBAD005B2DF5 /* DIN.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 21873FF92862FBAC005B2DF5 /* DIN.xcdatamodeld */; };
 		2187400D2862FBAD005B2DF5 /* DIN.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 21873FF92862FBAC005B2DF5 /* DIN.xcdatamodeld */; };
 		2187400E2862FBAD005B2DF5 /* DINApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21873FFB2862FBAC005B2DF5 /* DINApp.swift */; };
 		2187400F2862FBAD005B2DF5 /* DINApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21873FFB2862FBAC005B2DF5 /* DINApp.swift */; };
-		218740102862FBAD005B2DF5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21873FFC2862FBAC005B2DF5 /* ContentView.swift */; };
-		218740112862FBAD005B2DF5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21873FFC2862FBAC005B2DF5 /* ContentView.swift */; };
 		218740122862FBAD005B2DF5 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21873FFD2862FBAC005B2DF5 /* Persistence.swift */; };
 		218740132862FBAD005B2DF5 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21873FFD2862FBAC005B2DF5 /* Persistence.swift */; };
 		218740142862FBAD005B2DF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21873FFE2862FBAD005B2DF5 /* Assets.xcassets */; };
@@ -33,12 +34,15 @@
 		218740382863597E005B2DF5 /* AddTodoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218740362863597E005B2DF5 /* AddTodoScreen.swift */; };
 		2187403A28644745005B2DF5 /* GroupIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2187403928644745005B2DF5 /* GroupIconView.swift */; };
 		2187403B28644745005B2DF5 /* GroupIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2187403928644745005B2DF5 /* GroupIconView.swift */; };
+		219B4D412865ED950031089B /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219B4D402865ED950031089B /* PersistenceController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		218113E82865DD15006DA023 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		218113EA2865DE25006DA023 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		218113EC2865E196006DA023 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		21873FFA2862FBAC005B2DF5 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		21873FFB2862FBAC005B2DF5 /* DINApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DINApp.swift; sourceTree = "<group>"; };
-		21873FFC2862FBAC005B2DF5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		21873FFD2862FBAC005B2DF5 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		21873FFE2862FBAD005B2DF5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		218740032862FBAD005B2DF5 /* DIN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DIN.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,6 +56,7 @@
 		2187403328635962005B2DF5 /* AddGroupScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupScreen.swift; sourceTree = "<group>"; };
 		218740362863597E005B2DF5 /* AddTodoScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoScreen.swift; sourceTree = "<group>"; };
 		2187403928644745005B2DF5 /* GroupIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupIconView.swift; sourceTree = "<group>"; };
+		219B4D402865ED950031089B /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +77,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		218113E72865DD01006DA023 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				218113EA2865DE25006DA023 /* Group.swift */,
+				218113E82865DD15006DA023 /* Color.swift */,
+				218113EC2865E196006DA023 /* Todo.swift */,
+				219B4D402865ED950031089B /* PersistenceController.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		21873FF32862FBAC005B2DF5 = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +105,7 @@
 				218740202862FD6D005B2DF5 /* Views */,
 				2187401F2862FD5A005B2DF5 /* Screens */,
 				2187401E2862FD3B005B2DF5 /* Models */,
+				218113E72865DD01006DA023 /* Extensions */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -122,7 +139,6 @@
 		2187401F2862FD5A005B2DF5 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				21873FFC2862FBAC005B2DF5 /* ContentView.swift */,
 				2187402128630A31005B2DF5 /* HomeScreen.swift */,
 				2187403328635962005B2DF5 /* AddGroupScreen.swift */,
 				218740362863597E005B2DF5 /* AddTodoScreen.swift */,
@@ -245,11 +261,14 @@
 				2187400C2862FBAD005B2DF5 /* DIN.xcdatamodeld in Sources */,
 				2187403A28644745005B2DF5 /* GroupIconView.swift in Sources */,
 				2187402228630A31005B2DF5 /* HomeScreen.swift in Sources */,
+				218113E92865DD15006DA023 /* Color.swift in Sources */,
 				218740122862FBAD005B2DF5 /* Persistence.swift in Sources */,
+				218113ED2865E196006DA023 /* Todo.swift in Sources */,
 				2187403428635962005B2DF5 /* AddGroupScreen.swift in Sources */,
+				219B4D412865ED950031089B /* PersistenceController.swift in Sources */,
 				21874031286356DE005B2DF5 /* SectionTitleView.swift in Sources */,
+				218113EB2865DE25006DA023 /* Group.swift in Sources */,
 				2187400E2862FBAD005B2DF5 /* DINApp.swift in Sources */,
-				218740102862FBAD005B2DF5 /* ContentView.swift in Sources */,
 				218740372863597E005B2DF5 /* AddTodoScreen.swift in Sources */,
 				2187402E28634004005B2DF5 /* CheckboxView.swift in Sources */,
 			);
@@ -268,7 +287,6 @@
 				2187403528635962005B2DF5 /* AddGroupScreen.swift in Sources */,
 				21874032286356DE005B2DF5 /* SectionTitleView.swift in Sources */,
 				2187400F2862FBAD005B2DF5 /* DINApp.swift in Sources */,
-				218740112862FBAD005B2DF5 /* ContentView.swift in Sources */,
 				218740382863597E005B2DF5 /* AddTodoScreen.swift in Sources */,
 				2187402F28634004005B2DF5 /* CheckboxView.swift in Sources */,
 			);

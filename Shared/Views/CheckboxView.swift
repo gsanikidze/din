@@ -9,7 +9,15 @@ import SwiftUI
 
 struct CheckboxView: View {
     var label: String?
+    var onToggle: (() -> Void)?
+    
     @State private var checked = false
+    
+    init (label: String? = nil, defaultChecked: Bool? = false, onToggle: (() -> Void)? = {}) {
+        self.label = label
+        self.onToggle = onToggle
+        _checked = .init(initialValue: defaultChecked ?? false)
+    }
     
     var body: some View {
         HStack {
@@ -24,7 +32,13 @@ struct CheckboxView: View {
                 Text(label!)
             }
         }.onTapGesture {
-            checked = !checked
+            withAnimation {
+                checked.toggle()
+                
+                if onToggle != nil {
+                    (onToggle!)()
+                }
+            }
         }
     }
 }

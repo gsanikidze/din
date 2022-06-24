@@ -8,15 +8,26 @@
 import SwiftUI
 
 struct AddTodoScreen: View {
+    @Environment(\.managedObjectContext) private var moc
     @Environment(\.dismiss) private var dismiss
     
-    private let groups = [
-        "Today", "Some group", "Some other group"
-    ]
+    @FetchRequest(entity: Group.entity(), sortDescriptors: []) private var groups: FetchedResults<Group>
     
     @State private var title = ""
-    @State private var group = ""
+    @State private var group: UUID?
     @State private var date = Date()
+    
+    private func createTodo() {
+        if self.group == nil {
+            return
+        }
+        
+        let selectedGroup = groups.first(where: {$0.id == self.group!})
+        
+        PersistenceController.shared.createTodo(context: moc, group: selectedGroup!, title: title, doDate: date)
+        
+        dismiss()
+    }
     
     var body: some View {
         NavigationView {
@@ -24,8 +35,8 @@ struct AddTodoScreen: View {
                 TextField("Title", text: $title)
                 
                 Picker("Select Group", selection: $group) {
-                    ForEach(groups, id: \.self) {
-                        Text($0)
+                    ForEach(groups) {
+                        Text($0.title!).tag($0.id)
                     }
                 }
                 
@@ -43,7 +54,7 @@ struct AddTodoScreen: View {
                 }
                 
                 ToolbarItem (placement: .primaryAction) {
-                    Button (action: { dismiss() }) {
+                    Button (action: createTodo) {
                         Text("Done")
                     }
                 }

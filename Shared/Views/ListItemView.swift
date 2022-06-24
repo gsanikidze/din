@@ -6,20 +6,33 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct ListItemView: View {
+    @Environment(\.managedObjectContext) private var moc
+    
+    var todo: Todo
+    
     @State var doesClose = false
+    
+    private func deleteTodo(object: NSManagedObject) {
+        PersistenceController.shared.delete(context: moc, object: object)
+    }
     
     var body: some View {
         VStack {
             HStack {
                 VStack (alignment: .leading, spacing: 5) {
                     HStack {
-                        CheckboxView()
-                        Text("Some list item")
+                        CheckboxView(defaultChecked: todo.done, onToggle: {
+                            todo.toggle(context: moc)
+                        })
+                        if todo.title != nil {
+                            Text(todo.title!)
+                        }
                     }
                     
-                    Text("Group Title | Today at 2pm")
+                    Text("\(todo.group!.title!) | \(todo.readableDoDate)")
                         .foregroundColor(Color.gray)
                         .font(.system(size: 14))
                 }
@@ -27,15 +40,20 @@ struct ListItemView: View {
                 Spacer()
                 
                 Image(systemName: "trash")
+                    .onTapGesture {
+                        deleteTodo(object: todo)
+                    }
             }
             Divider()
         }
     }
 }
 
+let todo = Todo.createFakeTodo(group: Group())
+
 struct ListItemView_Previews: PreviewProvider {
     static var previews: some View {
-        ListItemView()
+        ListItemView(todo: todo)
             .previewLayout(.sizeThatFits)
     }
 }

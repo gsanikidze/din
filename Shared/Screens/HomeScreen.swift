@@ -6,8 +6,12 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct HomeScreen: View {
+    @FetchRequest(entity: Group.entity(), sortDescriptors: []) private var groups: FetchedResults<Group>
+    @FetchRequest(entity: Todo.entity(), sortDescriptors: []) private var todos: FetchedResults<Todo>
+    
     @State private var searchValue = ""
     @State private var isAddGroupOpen = false
     @State private var isAddTodoOpen = false
@@ -19,18 +23,15 @@ struct HomeScreen: View {
             ScrollView {
                 VStack (spacing: 10) {
                     LazyVGrid(columns: groupCardColumns, spacing: 10) {
-                        ForEach(1...4, id: \.self) {_ in
-                            GroupCardView()
+                        ForEach(groups) {group in
+                            GroupCardView(group: group)
                         }
                     }
                     
                     SectionTitleView(title: "All")
                     
-                    ForEach(1...20, id: \.self) { _ in
-                        ListItemView()
-                    }
-                    .onDelete {indexSet in
-                        print("deleted")
+                    ForEach(todos) { todo in
+                        ListItemView(todo: todo)
                     }
                 }
             }

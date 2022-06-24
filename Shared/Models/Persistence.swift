@@ -11,11 +11,17 @@ struct PersistenceController {
     static let shared = PersistenceController()
 
     static var preview: PersistenceController = {
+        var groups: [Group] = []
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
-        for _ in 0..<10 {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
+        for _ in 0..<3 {
+            let newGroup = Group.createFakeGroup(context: viewContext)
+            
+            groups.append(newGroup)
+        }
+        
+        for _ in 0..<3 {
+            let newTodo = Todo.createFakeTodo(group: groups[Int.random(in: 0..<groups.count)], context: viewContext)
         }
         
         result.save(context: viewContext)
@@ -36,6 +42,12 @@ struct PersistenceController {
             }
         })
         container.viewContext.automaticallyMergesChangesFromParent = true
+    }
+    
+    func delete(context: NSManagedObjectContext, object: NSManagedObject) {
+        context.delete(object)
+        
+        self.save(context: context)
     }
     
     func save(context: NSManagedObjectContext) {

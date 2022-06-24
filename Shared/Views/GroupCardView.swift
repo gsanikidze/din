@@ -8,23 +8,27 @@
 import SwiftUI
 
 struct GroupCardView: View {
+    var group: Group
+    
     var body: some View {
         VStack {
             HStack {
-                GroupIconView(systemIcon: "calendar", color: Color.pink)
+                GroupIconView(systemIcon: group.systemIcon ?? "calendar", color: group.color != nil ? Color(hex: group.color!)! : Color.pink)
                 
                 Spacer()
                 
-                Text("21")
+                Text("\(group.todos!.count)")
                     .foregroundColor(.primary)
                     .bold()
             }
             
-            HStack {
-                Text("Today")
-                    .font(.system(size: 18))
-                    .bold()
-                Spacer()
+            if group.title != nil {
+                HStack {
+                    Text(group.title!)
+                        .font(.system(size: 18))
+                        .bold()
+                    Spacer()
+                }
             }
         }
         .padding(10)
@@ -33,9 +37,11 @@ struct GroupCardView: View {
     }
 }
 
+let group = Group.createFakeGroup()
+
 struct GroupCardView_Previews: PreviewProvider {
     static var previews: some View {
-        GroupCardView()
+        GroupCardView(group: group)
             .previewLayout(.sizeThatFits)
     }
 }
