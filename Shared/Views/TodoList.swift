@@ -16,10 +16,16 @@ struct TodoList: View {
         }
     }
     
-    init(query: String) {
+    init(query: String, group: Group? = nil) {
         let sortByDate = NSSortDescriptor(key: #keyPath(Todo.createdAt), ascending: false)
         
-        if !query.isEmpty {
+        if group != nil {
+            if query.isEmpty {
+                _todos = FetchRequest<Todo>(sortDescriptors: [sortByDate], predicate: NSPredicate(format: "group = %@", group!))
+            } else {
+                _todos = FetchRequest<Todo>(sortDescriptors: [sortByDate], predicate: NSPredicate(format: "group = %@ && title CONTAINS[cd] %@", group!, query))
+            }
+        } else if !query.isEmpty {
             _todos = FetchRequest<Todo>(sortDescriptors: [sortByDate], predicate: NSPredicate(format: "title CONTAINS[cd] %@", query))
         } else {
             _todos = FetchRequest<Todo>(sortDescriptors: [sortByDate])

@@ -11,6 +11,8 @@ struct GroupCardView: View {
     @Environment(\.managedObjectContext) private var moc
     
     @ObservedObject var group: Group
+    var isFilteredByGroup = false
+    var onGroupTap: (Group) -> Void
     
     var body: some View {
         VStack {
@@ -37,7 +39,16 @@ struct GroupCardView: View {
         }
         .padding(10)
         .background(Color(UIColor.systemGray6))
+        .overlay(
+            RoundedRectangle(cornerRadius: 10)
+                .stroke(Color(isFilteredByGroup ? UIColor.systemGray5 : UIColor.systemGray6), lineWidth: 10)
+        )
         .cornerRadius(10)
+        .onTapGesture {
+            withAnimation {
+                onGroupTap(group)
+            }
+        }
         .contextMenu {
             Button("Delete Group") {
                 withAnimation {
@@ -52,7 +63,7 @@ let group = Group.createFakeGroup()
 
 struct GroupCardView_Previews: PreviewProvider {
     static var previews: some View {
-        GroupCardView(group: group)
+        GroupCardView(group: group, onGroupTap: {_ in})
             .previewLayout(.sizeThatFits)
     }
 }

@@ -14,6 +14,7 @@ struct HomeScreen: View {
     @State private var searchValue = ""
     @State private var isAddGroupOpen = false
     @State private var isAddTodoOpen = false
+    @State private var filteredByGroup: Group? = nil
     
     private let groupCardColumns = Array(repeating: GridItem(.flexible(), spacing: 10), count: 2)
     
@@ -23,13 +24,22 @@ struct HomeScreen: View {
                 VStack (spacing: 10) {
                     LazyVGrid(columns: groupCardColumns, spacing: 10) {
                         ForEach(groups) {group in
-                            GroupCardView(group: group)
+                            GroupCardView(
+                                group: group,
+                                isFilteredByGroup: group == filteredByGroup,
+                                onGroupTap: { g in
+                                    if filteredByGroup == g {
+                                        filteredByGroup = nil
+                                    } else {
+                                        filteredByGroup = g
+                                    }
+                                })
                         }
                     }
                     
                     SectionTitleView(title: "All")
                     
-                    TodoList(query: searchValue)
+                    TodoList(query: searchValue, group: filteredByGroup)
                 }
             }
             .padding(.leading)
