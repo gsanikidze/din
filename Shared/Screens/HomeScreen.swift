@@ -10,7 +10,6 @@ import CoreData
 
 struct HomeScreen: View {
     @FetchRequest(entity: Group.entity(), sortDescriptors: []) private var groups: FetchedResults<Group>
-    @FetchRequest(entity: Todo.entity(), sortDescriptors: []) private var todos: FetchedResults<Todo>
     
     @State private var searchValue = ""
     @State private var isAddGroupOpen = false
@@ -30,9 +29,7 @@ struct HomeScreen: View {
                     
                     SectionTitleView(title: "All")
                     
-                    ForEach(todos) { todo in
-                        ListItemView(todo: todo)
-                    }
+                    TodoList(query: searchValue)
                 }
             }
             .padding(.leading)

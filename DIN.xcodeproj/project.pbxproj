@@ -35,6 +35,7 @@
 		2187403A28644745005B2DF5 /* GroupIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2187403928644745005B2DF5 /* GroupIconView.swift */; };
 		2187403B28644745005B2DF5 /* GroupIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2187403928644745005B2DF5 /* GroupIconView.swift */; };
 		219B4D412865ED950031089B /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219B4D402865ED950031089B /* PersistenceController.swift */; };
+		219B4D432868C6880031089B /* TodoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219B4D422868C6880031089B /* TodoList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		218740362863597E005B2DF5 /* AddTodoScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoScreen.swift; sourceTree = "<group>"; };
 		2187403928644745005B2DF5 /* GroupIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupIconView.swift; sourceTree = "<group>"; };
 		219B4D402865ED950031089B /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		219B4D422868C6880031089B /* TodoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 				2187402D28634004005B2DF5 /* CheckboxView.swift */,
 				21874030286356DE005B2DF5 /* SectionTitleView.swift */,
 				2187403928644745005B2DF5 /* GroupIconView.swift */,
+				219B4D422868C6880031089B /* TodoList.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 				2187403428635962005B2DF5 /* AddGroupScreen.swift in Sources */,
 				219B4D412865ED950031089B /* PersistenceController.swift in Sources */,
 				21874031286356DE005B2DF5 /* SectionTitleView.swift in Sources */,
+				219B4D432868C6880031089B /* TodoList.swift in Sources */,
 				218113EB2865DE25006DA023 /* Group.swift in Sources */,
 				2187400E2862FBAD005B2DF5 /* DINApp.swift in Sources */,
 				218740372863597E005B2DF5 /* AddTodoScreen.swift in Sources */,
