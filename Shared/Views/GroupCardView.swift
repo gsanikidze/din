@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct GroupCardView: View {
+    @Environment(\.managedObjectContext) private var moc
+    
     @ObservedObject var group: Group
     
     var body: some View {
@@ -17,9 +19,11 @@ struct GroupCardView: View {
                 
                 Spacer()
                 
-                Text("\(group.todos!.count)")
-                    .foregroundColor(.primary)
-                    .bold()
+                if group.todos != nil {
+                    Text("\(group.todos!.count)")
+                        .foregroundColor(.primary)
+                        .bold()
+                }
             }
             
             if group.title != nil {
@@ -34,6 +38,13 @@ struct GroupCardView: View {
         .padding(10)
         .background(Color(UIColor.systemGray6))
         .cornerRadius(10)
+        .contextMenu {
+            Button("Delete Group") {
+                withAnimation {
+                    PersistenceController.shared.delete(context: moc, object: group)
+                }
+            }
+        }
     }
 }
 
