@@ -96,7 +96,7 @@ struct PublishGroupScreen: View {
                     
                     LazyVGrid (columns: columns, spacing: 20) {
                         ForEach(systemIcons, id: \.self) { icon in
-                            GroupIconView(systemIcon: icon, color: self.systemIcon == icon ? self.color : Color(UIColor.systemGray6))
+                            GroupIconView(systemIcon: icon, color: self.systemIcon == icon ? self.color : Color(UIColor.systemGray3))
                                 .onTapGesture {
                                     withAnimation {
                                         self.systemIcon = icon
