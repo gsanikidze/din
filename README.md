@@ -1,0 +1,1 @@
+Sample todo application, with core data, light and dark mode.
