@@ -51,7 +51,7 @@ struct HomeScreen: View {
                     Button(action: { isAddGroupOpen = true }) {
                         Image(systemName: "plus.rectangle.on.folder")
                             .sheet (isPresented: $isAddGroupOpen) {
-                                AddGroupScreen()
+                                PublishGroupScreen()
                             }
                     }
                 }

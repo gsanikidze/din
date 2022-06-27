@@ -14,6 +14,8 @@ struct GroupCardView: View {
     var isFilteredByGroup = false
     var onGroupTap: (Group) -> Void
     
+    @State private var isEditGroupOpen = false
+    
     var body: some View {
         VStack {
             HStack {
@@ -50,11 +52,19 @@ struct GroupCardView: View {
             }
         }
         .contextMenu {
-            Button("Delete Group") {
-                withAnimation {
-                    PersistenceController.shared.delete(context: moc, object: group)
+            VStack {
+                Button("Edit Group") {
+                    isEditGroupOpen.toggle()
+                }
+                Button("Delete Group") {
+                    withAnimation {
+                        PersistenceController.shared.delete(context: moc, object: group)
+                    }
                 }
             }
+        }
+        .sheet(isPresented: $isEditGroupOpen) {
+            PublishGroupScreen(group: group)
         }
     }
 }

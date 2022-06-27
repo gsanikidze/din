@@ -28,8 +28,8 @@
 		2187402F28634004005B2DF5 /* CheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2187402D28634004005B2DF5 /* CheckboxView.swift */; };
 		21874031286356DE005B2DF5 /* SectionTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21874030286356DE005B2DF5 /* SectionTitleView.swift */; };
 		21874032286356DE005B2DF5 /* SectionTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21874030286356DE005B2DF5 /* SectionTitleView.swift */; };
-		2187403428635962005B2DF5 /* AddGroupScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2187403328635962005B2DF5 /* AddGroupScreen.swift */; };
-		2187403528635962005B2DF5 /* AddGroupScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2187403328635962005B2DF5 /* AddGroupScreen.swift */; };
+		2187403428635962005B2DF5 /* PublishGroupScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2187403328635962005B2DF5 /* PublishGroupScreen.swift */; };
+		2187403528635962005B2DF5 /* PublishGroupScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2187403328635962005B2DF5 /* PublishGroupScreen.swift */; };
 		218740372863597E005B2DF5 /* PublishTodoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218740362863597E005B2DF5 /* PublishTodoScreen.swift */; };
 		218740382863597E005B2DF5 /* PublishTodoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218740362863597E005B2DF5 /* PublishTodoScreen.swift */; };
 		2187403A28644745005B2DF5 /* GroupIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2187403928644745005B2DF5 /* GroupIconView.swift */; };
@@ -54,7 +54,7 @@
 		2187402A28633DA7005B2DF5 /* ListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemView.swift; sourceTree = "<group>"; };
 		2187402D28634004005B2DF5 /* CheckboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxView.swift; sourceTree = "<group>"; };
 		21874030286356DE005B2DF5 /* SectionTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitleView.swift; sourceTree = "<group>"; };
-		2187403328635962005B2DF5 /* AddGroupScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupScreen.swift; sourceTree = "<group>"; };
+		2187403328635962005B2DF5 /* PublishGroupScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishGroupScreen.swift; sourceTree = "<group>"; };
 		218740362863597E005B2DF5 /* PublishTodoScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishTodoScreen.swift; sourceTree = "<group>"; };
 		2187403928644745005B2DF5 /* GroupIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupIconView.swift; sourceTree = "<group>"; };
 		219B4D402865ED950031089B /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
@@ -142,7 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				2187402128630A31005B2DF5 /* HomeScreen.swift */,
-				2187403328635962005B2DF5 /* AddGroupScreen.swift */,
+				2187403328635962005B2DF5 /* PublishGroupScreen.swift */,
 				218740362863597E005B2DF5 /* PublishTodoScreen.swift */,
 			);
 			path = Screens;
@@ -267,7 +267,7 @@
 				218113E92865DD15006DA023 /* Color.swift in Sources */,
 				218740122862FBAD005B2DF5 /* Persistence.swift in Sources */,
 				218113ED2865E196006DA023 /* Todo.swift in Sources */,
-				2187403428635962005B2DF5 /* AddGroupScreen.swift in Sources */,
+				2187403428635962005B2DF5 /* PublishGroupScreen.swift in Sources */,
 				219B4D412865ED950031089B /* PersistenceController.swift in Sources */,
 				21874031286356DE005B2DF5 /* SectionTitleView.swift in Sources */,
 				219B4D432868C6880031089B /* TodoList.swift in Sources */,
@@ -288,7 +288,7 @@
 				2187403B28644745005B2DF5 /* GroupIconView.swift in Sources */,
 				2187402328630A31005B2DF5 /* HomeScreen.swift in Sources */,
 				218740132862FBAD005B2DF5 /* Persistence.swift in Sources */,
-				2187403528635962005B2DF5 /* AddGroupScreen.swift in Sources */,
+				2187403528635962005B2DF5 /* PublishGroupScreen.swift in Sources */,
 				21874032286356DE005B2DF5 /* SectionTitleView.swift in Sources */,
 				2187400F2862FBAD005B2DF5 /* DINApp.swift in Sources */,
 				218740382863597E005B2DF5 /* PublishTodoScreen.swift in Sources */,

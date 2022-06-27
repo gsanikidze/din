@@ -7,9 +7,11 @@
 
 import SwiftUI
 
-struct AddGroupScreen: View {
+struct PublishGroupScreen: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.managedObjectContext) private var moc
+    
+    var group: Group? = nil
     
     @State private var title = ""
     @State private var color = Color.indigo
@@ -27,10 +29,28 @@ struct AddGroupScreen: View {
     
     private let columns = Array(repeating: GridItem(spacing: 20), count: 5)
     
-    private func createGroup() {
-        PersistenceController.shared.createGroup(context: moc, title: title, symbolIcon: systemIcon, color: color)
+    private func publishGroup() {
+        if group != nil {
+            group?.title = title
+            group?.systemIcon = systemIcon
+            group?.color = color.toHex()
+            
+            PersistenceController.shared.save(context: moc)
+        } else {
+            PersistenceController.shared.createGroup(context: moc, title: title, symbolIcon: systemIcon, color: color)
+        }
         
         dismiss()
+    }
+    
+    init(group: Group? = nil) {
+        if let safeGroup = group {
+            self.group = safeGroup
+            
+            self._title = .init(initialValue: safeGroup.title!)
+            self._color = .init(initialValue: Color(hex: safeGroup.color!)!)
+            self._systemIcon = .init(initialValue: safeGroup.systemIcon!)
+        }
     }
     
     var body: some View {
@@ -51,7 +71,7 @@ struct AddGroupScreen: View {
                     LazyVGrid (columns: columns, spacing: 20) {
                         ForEach(colors, id: \.self) { cl in
                             ZStack {
-                                if cl == color {
+                                if cl.toHex()! == color.toHex()! {
                                     Circle()
                                         .foregroundColor(cl)
                                         .frame(width: 45, height: 45)
@@ -98,7 +118,7 @@ struct AddGroupScreen: View {
                 }
                 
                 ToolbarItem (placement: .primaryAction) {
-                    Button (action: createGroup) {
+                    Button (action: publishGroup) {
                         Text("Done")
                     }
                 }
@@ -109,8 +129,8 @@ struct AddGroupScreen: View {
     }
 }
 
-struct AddGroupScreen_Previews: PreviewProvider {
+struct PublishGroupScreen_Previews: PreviewProvider {
     static var previews: some View {
-        AddGroupScreen()
+        PublishGroupScreen()
     }
 }

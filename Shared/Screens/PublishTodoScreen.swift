@@ -28,7 +28,7 @@ struct PublishTodoScreen: View {
         }
     }
     
-    private func createTodo() {
+    private func publishTodo() {
         if self.group == nil {
             return
         }
@@ -73,7 +73,7 @@ struct PublishTodoScreen: View {
                 }
                 
                 ToolbarItem (placement: .primaryAction) {
-                    Button (action: createTodo) {
+                    Button (action: publishTodo) {
                         Text("Done")
                     }
                 }
