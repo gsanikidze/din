@@ -59,7 +59,7 @@ struct HomeScreen: View {
                     Button(action: { isAddTodoOpen = true }) {
                         Image(systemName: "plus.circle")
                             .sheet(isPresented: $isAddTodoOpen) {
-                                AddTodoScreen()
+                                PublishTodoScreen()
                             }
                     }
                 }

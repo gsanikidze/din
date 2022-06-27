@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AddTodoScreen: View {
+struct PublishTodoScreen: View {
     @Environment(\.managedObjectContext) private var moc
     @Environment(\.dismiss) private var dismiss
     
@@ -17,6 +17,17 @@ struct AddTodoScreen: View {
     @State private var group: UUID?
     @State private var date = Date()
     
+    var todo: Todo? = nil
+    
+    init (todo: Todo? = nil) {
+        if let safeTodo = todo {
+            self.todo = safeTodo
+            self._title = .init(initialValue: safeTodo.title!)
+            self._date = .init(initialValue: safeTodo.doDate!)
+            self._group = .init(initialValue: safeTodo.group!.id)
+        }
+    }
+    
     private func createTodo() {
         if self.group == nil {
             return
@@ -24,7 +35,15 @@ struct AddTodoScreen: View {
         
         let selectedGroup = groups.first(where: {$0.id == self.group!})
         
-        PersistenceController.shared.createTodo(context: moc, group: selectedGroup!, title: title, doDate: date)
+        if todo != nil {
+            todo?.title = title
+            todo?.group = selectedGroup
+            todo?.doDate = date
+            
+            PersistenceController.shared.save(context: moc)
+        } else {
+            PersistenceController.shared.createTodo(context: moc, group: selectedGroup!, title: title, doDate: date)
+        }
         
         dismiss()
     }
@@ -65,8 +84,8 @@ struct AddTodoScreen: View {
     }
 }
 
-struct AddTodoScreen_Previews: PreviewProvider {
+struct PublishTodoScreen_Previews: PreviewProvider {
     static var previews: some View {
-        AddTodoScreen()
+        PublishTodoScreen()
     }
 }

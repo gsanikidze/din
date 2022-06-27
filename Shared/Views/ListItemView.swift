@@ -11,9 +11,10 @@ import CoreData
 struct ListItemView: View {
     @Environment(\.managedObjectContext) private var moc
     
-    var todo: Todo
+    @ObservedObject var todo: Todo
     
-    @State var doesClose = false
+    @State private var doesClose = false
+    @State private var isEditTodoOpen = false
     
     private func deleteTodo(object: NSManagedObject) {
         PersistenceController.shared.delete(context: moc, object: object)
@@ -29,6 +30,12 @@ struct ListItemView: View {
                         })
                         if todo.title != nil {
                             Text(todo.title!)
+                                .onTapGesture {
+                                    isEditTodoOpen.toggle()
+                                }
+                                .sheet(isPresented: $isEditTodoOpen) {
+                                    PublishTodoScreen(todo: todo)
+                                }
                         }
                     }
                     
