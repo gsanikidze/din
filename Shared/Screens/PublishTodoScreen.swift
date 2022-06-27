@@ -78,7 +78,7 @@ struct PublishTodoScreen: View {
                     }
                 }
             }
-            .navigationTitle("Add Todo")
+            .navigationTitle("Publish Todo")
             .navigationBarTitleDisplayMode(.inline)
         }
     }

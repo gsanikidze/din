@@ -123,7 +123,7 @@ struct PublishGroupScreen: View {
                     }
                 }
             }
-            .navigationTitle("Add Group")
+            .navigationTitle("Publish Group")
             .navigationBarTitleDisplayMode(.inline)
         }
     }
