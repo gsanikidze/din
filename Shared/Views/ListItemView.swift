@@ -39,9 +39,11 @@ struct ListItemView: View {
                         }
                     }
                     
-                    Text("\(todo.group!.title!) | \(todo.readableDoDate)")
-                        .foregroundColor(Color.gray)
-                        .font(.system(size: 14))
+                    if todo.group != nil {
+                        Text("\(todo.group!.title!) | \(todo.readableDoDate)")
+                            .foregroundColor(Color.gray)
+                            .font(.system(size: 14))
+                    }
                 }
                 
                 Spacer()

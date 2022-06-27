@@ -38,6 +38,7 @@
 		219B4D432868C6880031089B /* TodoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219B4D422868C6880031089B /* TodoList.swift */; };
 		219B4D4528699D0D0031089B /* TodoTabScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219B4D4428699D0D0031089B /* TodoTabScreen.swift */; };
 		219B4D4728699E1F0031089B /* ChartTabScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219B4D4628699E1F0031089B /* ChartTabScreen.swift */; };
+		219B4D4A2869A2410031089B /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 219B4D492869A2410031089B /* SwiftUICharts */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				219B4D4A2869A2410031089B /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,6 +185,9 @@
 			dependencies = (
 			);
 			name = "DIN (iOS)";
+			packageProductDependencies = (
+				219B4D492869A2410031089B /* SwiftUICharts */,
+			);
 			productName = "DIN (iOS)";
 			productReference = 218740032862FBAD005B2DF5 /* DIN.app */;
 			productType = "com.apple.product-type.application";
@@ -231,6 +236,9 @@
 				Base,
 			);
 			mainGroup = 21873FF32862FBAC005B2DF5;
+			packageReferences = (
+				219B4D482869A2410031089B /* XCRemoteSwiftPackageReference "ChartView" */,
+			);
 			productRefGroup = 218740042862FBAD005B2DF5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -564,6 +572,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		219B4D482869A2410031089B /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		219B4D492869A2410031089B /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 219B4D482869A2410031089B /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		21873FF92862FBAC005B2DF5 /* DIN.xcdatamodeld */ = {
